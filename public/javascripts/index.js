@@ -1,5 +1,7 @@
 const urlForm = document.querySelector('form')
 const urlResult = document.getElementById('url-result')
+const inputUrl = urlForm.querySelector('[name="url"]')
+const resetBtn = document.getElementById('reset')
 
 function copyUrl() {
   var copyText = document.getElementById("result");
@@ -9,9 +11,8 @@ function copyUrl() {
 
 urlForm.addEventListener('submit', event => {
   event.preventDefault()
-  const inputUrl = urlForm.querySelector('[name="url"]').value
 
-  fetch(`http://localhost:3000/convert?url=${inputUrl}`)
+  fetch(`http://localhost:3000/convert?url=${inputUrl.value}`)
     .then(data => {
       return data.json()
     })
@@ -24,3 +25,9 @@ urlForm.addEventListener('submit', event => {
     })
 })
 
+resetBtn.addEventListener('click', event => {
+  // clear user input column
+  inputUrl.value = ''
+  // clear url result column
+  urlResult.querySelector('[name="result"]').value = ''
+})
