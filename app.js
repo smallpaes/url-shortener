@@ -43,7 +43,7 @@ app.get('/convert', async (req, res) => {
     // if url already exist
     if (urlResult) { return res.status(200).json({ url: urlResult.shortenedUrl }) }
 
-    // generate a unique shortened url
+    // generate an unique shortened url
     let shortenedUrl = ''
 
     while (true) {
