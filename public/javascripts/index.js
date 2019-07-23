@@ -10,7 +10,10 @@ function copyUrl() {
 }
 
 urlForm.addEventListener('submit', event => {
+
   event.preventDefault()
+  urlForm.classList.add('was-validated')
+  if (!inputUrl.checkValidity()) { return }
 
   fetch(`http://localhost:3000/convert?url=${inputUrl.value}`)
     .then(data => {

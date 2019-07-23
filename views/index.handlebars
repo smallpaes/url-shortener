@@ -1,10 +1,13 @@
 <section class="container d-flex flex-column justify-content-center vh-100">
   <h1 class="text-center">URL Shortener</h1>
   <h1 class="display-1 text-center my-5"><i class="fas fa-link"></i></h1>
-  <form class="w-75 mx-auto d-flex flex-column align-items-center">
+  <form class="w-75 mx-auto d-flex flex-column align-items-center" novalidate>
     <div class="form-group w-100">
       <label for="url" class="sr-only"></label>
       <input type="url" name="url" id="url" class="form-control" placeholder="Your Website URL" required>
+      <div class="invalid-feedback">
+        Please enter a valid url starting with: http:// or https://
+      </div>
     </div>
     <div class="input-group w-100 d-none" id="url-result">
       <input type="url" id="result" name="result" class="form-control">
@@ -18,3 +21,4 @@
     </div>
   </form>
 </section>
+<span></span>
