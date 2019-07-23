@@ -57,7 +57,13 @@ app.get('/convert', async (req, res) => {
 })
 
 app.get('/:shortenedUrl', (req, res) => {
-  res.send('get url')
+  Url.findOne({ shortenedUrl: req.params.shortenedUrl })
+    .then(data => {
+      // no such url
+      if (!data) { return res.redirect('/') }
+      // url found, redirect to original url page
+      res.redirect(data.originalUrl)
+    })
 })
 
 app.listen(port, () => {
