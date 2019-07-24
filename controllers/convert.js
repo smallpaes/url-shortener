@@ -14,7 +14,7 @@ module.exports = {
       if (!inputUrl || (!inputUrl.match(httpRegex) && !inputUrl.match(httpsRegex))) {
         return res.render('index', {
           inputUrl,
-          error: "Please enter a valid url starting with: http:// or https://"
+          error: "Please enter a valid url: http://... or https://..."
         })
       }
 
