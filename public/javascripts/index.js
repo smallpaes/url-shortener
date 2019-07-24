@@ -26,7 +26,7 @@ urlForm.addEventListener('submit', event => {
       urlResult.classList.remove('d-none')
       urlResult.classList.add('animated', 'bounceIn')
       urlResult.addEventListener('animationend', handleAnimationEnd)
-      urlResult.querySelector('[name="result"]').value = `http://localhost:3000/${shortenedUrl.url}`
+      urlResult.querySelector('[name="result"]').value = `${window.location.href}${shortenedUrl.url}`
 
       // add event listener to copy button
       document.getElementById('copy-btn').addEventListener('click', copyUrl)
