@@ -1,0 +1,37 @@
+body {
+  font-family: 'Bangers', cursive;
+}
+
+section {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.link-picture .fa-link:before {
+  background: -webkit-linear-gradient(45deg,#1fddff,#1fddff 50% ,#ff4b1f 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+input {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+}
+
+.form-control:hover,
+.form-control:focus {
+  border-color: #686868;
+}
+
+.form-control:focus,
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus,
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+  box-shadow: none;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid,
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus {
+  border-color: #686868;
+  background: none;
+  padding-right: inherit;
+}

@@ -33,4 +33,7 @@ resetBtn.addEventListener('click', event => {
   inputUrl.value = ''
   // clear url result column
   urlResult.querySelector('[name="result"]').value = ''
+  // reset the form
+  urlResult.classList.add('d-none')
+  urlForm.classList.remove('was-validated')
 })
