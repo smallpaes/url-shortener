@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 
 // Include controller
 const convertController = require('./controllers/convert')
+const homeController = require('./controllers/home')
 
 const port = 3000
 
@@ -33,9 +34,7 @@ app.set('view engine', 'handlebars')
 // serve static files
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-  res.render('index')
-})
+app.get('/', homeController)
 
 app.get('/convert', convertController.getShortened)
 
