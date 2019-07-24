@@ -12,8 +12,8 @@
     {{/if}}
     <div class="form-group w-100">
       <label for="url" class="sr-only"></label>
-      <input type="url" name="url" id="url" class="form-control" value="{{inputUrl}}" placeholder="Your Website URL"
-        required>
+      <input type="url" name="url" id="url" class="form-control" pattern="https?://.+" value="{{inputUrl}}"
+        placeholder="Your Website URL" required>
       <div class="invalid-feedback">
         Please enter a valid url starting with: http:// or https://
       </div>
