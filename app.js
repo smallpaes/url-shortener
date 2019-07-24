@@ -10,7 +10,7 @@ const homeController = require('./controllers/home')
 const port = 3000
 
 // connect mongoose with database
-mongoose.connect('mongodb://localhost/url', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/url', { useNewUrlParser: true })
 
 const db = mongoose.connection
 
@@ -40,6 +40,6 @@ app.get('/convert', convertController.getShortened)
 
 app.get('/:shortenedUrl', convertController.getOriginal)
 
-app.listen(port, () => {
-  console.log(`Express is listening on http://localhost:${port}`)
+app.listen(process.env.PORT || port, () => {
+  console.log('App is running')
 })
