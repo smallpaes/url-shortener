@@ -9,6 +9,10 @@ function copyUrl() {
   document.execCommand("copy");
 }
 
+function handleAnimationEnd(event) {
+  return event.target.classList.remove('animated', 'bounceIn')
+}
+
 urlForm.addEventListener('submit', event => {
 
   event.preventDefault()
@@ -21,6 +25,8 @@ urlForm.addEventListener('submit', event => {
     })
     .then(shortenedUrl => {
       urlResult.classList.remove('d-none')
+      urlResult.classList.add('animated', 'bounceIn')
+      urlResult.addEventListener('animationend', handleAnimationEnd)
       urlResult.querySelector('[name="result"]').value = `http://localhost:3000/${shortenedUrl.url}`
 
       // add event listener to copy button
@@ -36,4 +42,8 @@ resetBtn.addEventListener('click', event => {
   // reset the form
   urlResult.classList.add('d-none')
   urlForm.classList.remove('was-validated')
+  // add animation to input 
+  inputUrl.classList.add('animated', 'bounceIn')
+  inputUrl.addEventListener('animationend', handleAnimationEnd)
 })
+
