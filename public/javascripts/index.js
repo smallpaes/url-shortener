@@ -18,8 +18,7 @@ urlForm.addEventListener('submit', event => {
   event.preventDefault()
   urlForm.classList.add('was-validated')
   if (!inputUrl.checkValidity()) { return }
-  console.log(`http://localhost:3000/convert?url=${inputUrl.value}`)
-  fetch(`http://localhost:3000/convert?url=${inputUrl.value}`)
+  fetch(`${window.location.href}convert?url=${inputUrl.value}`)
     .then(data => {
       return data.json()
     })
