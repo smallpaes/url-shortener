@@ -6,6 +6,18 @@ module.exports = {
   getShortened: async (req, res) => {
     const inputUrl = req.query.url
     try {
+      // validate input
+      const httpRegex = /^http:\/\//
+      const httpsRegex = /^https:\/\//
+
+      // Add server side validation
+      if (!inputUrl || (!inputUrl.match(httpRegex) && !inputUrl.match(httpsRegex))) {
+        return res.render('index', {
+          inputUrl,
+          error: "Please enter a valid url starting with: http:// or https://"
+        })
+      }
+
       // check if url exists in database
       const urlResult = await Url.findOne({ originalUrl: inputUrl })
       // if url already exist
